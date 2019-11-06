@@ -17,50 +17,47 @@ In this environment, a double-jointed arm can move to target locations. A reward
 
 The observation space consists of 33 variables corresponding to position, rotation, velocity, and angular velocities of the arm. Each action is a vector with four numbers, corresponding to torque applicable to two joints. Every entry in the action vector should be a number between -1 and 1.
 
-Environment details
+### Environment details
 
 The environment is based on Unity ML-agents. The project environment provided by Udacity is similar to the Reacher environment on the Unity ML-Agents GitHub page.
 
-    The Unity Machine Learning Agents Toolkit (ML-Agents) is an open-source Unity plugin that enables games and simulations to serve as environments for training intelligent agents. Agents can be trained using reinforcement learning, imitation learning, neuroevolution, or other machine learning methods through a simple-to-use Python API.
+The Unity Machine Learning Agents Toolkit (ML-Agents) is an open-source Unity plugin that enables games and simulations to serve as environments for training intelligent agents. Agents can be trained using reinforcement learning, imitation learning, neuroevolution, or other machine learning methods through a simple-to-use Python API.
 
 The observation space consists of 33 variables corresponding to position, rotation, velocity, and angular velocities of the arm. Each action is a vector with four numbers, corresponding to torque applicable to two joints. Every entry in the action vector should be a number between -1 and 1.
 
-    Set-up: Double-jointed arm which can move to target locations.
-    Goal: The agents must move it's hand to the goal location, and keep it there.
-    Agents: The environment contains 10 agent linked to a single Brain.
-        The provided Udacity agent versions are Single Agent or 20-Agents
-    Agent Reward Function (independent):
+- Set-up: Double-jointed arm which can move to target locations.
+- Goal: The agents must move it's hand to the goal location, and keep it there.
+- Agents: The environment contains 10 agent linked to a single Brain.
+	The provided Udacity agent versions are Single Agent or 20-Agents
+- Agent Reward Function (independent):
         +0.1 Each step agent's hand is in goal location.
-    Brains: One Brain with the following observation/action space.
-        Vector Observation space: 26 variables corresponding to position, rotation, velocity, and angular velocities of the two arm Rigidbodies.
-        Vector Action space: (Continuous) Size of 4, corresponding to torque applicable to two joints.
-        Visual Observations: None.
-    Reset Parameters: Two, corresponding to goal size, and goal movement speed.
-    Benchmark Mean Reward: 30
+- Brains: One Brain with the following observation/action space.
+	Vector Observation space: 26 variables corresponding to position, rotation, velocity, and angular velocities of the two arm Rigidbodies.
+	Vector Action space: (Continuous) Size of 4, corresponding to torque applicable to two joints.
+	Visual Observations: None.
+- Reset Parameters: Two, corresponding to goal size, and goal movement speed.
+- Benchmark Mean Reward: 30
 
 For this project, Udacity has provided two separate versions of the Unity environment:
 
-    The first version contains a single agent. (selected for this submission)
-    The second version contains 20 identical agents, each with its own copy of the environment.
+1. The first version contains a single agent. (selected for this submission)
+2. The second version contains 20 identical agents, each with its own copy of the environment.
 
-The second version is useful for algorithms like PPO, A3C, and D4PG that use multiple (non-interacting, parallel) copies of the same agent to distribute the task of gathering experience.
 
 ### Solving the Environment
 
-DDepending on the chosen environment for the implementation, there are 2 possibilities:
+Depending on the chosen environment for the implementation, there are 2 possibilities:
 
-    Option 1: Solve the First Version
-        The task is episodic, and in order to solve the environment, the agent must get an average score of +30 over 100 consecutive episodes.
-
-    Option 2: Solve the Second Version
-
-        The barrier for solving the second version of the environment is slightly different, to take into account the presence of many agents. In particular, the agents must get an average score of +30 (over 100 consecutive episodes, and over all agents). Specifically:
-            After each episode, the rewards that each agent received (without discounting) are added up , to get a score for each agent. This yields 20 (potentially different) scores. The average of these 20 scores is then used.
+Option 1: Solve the First Version (selected for this submission)
+	The task is episodic, and in order to solve the environment, the agent must get an average score of +30 over 100 consecutive episodes.
+Option 2: Solve the Second Version
+	The barrier for solving the second version of the environment is slightly different, to take into account the presence of many agents. In particular, the agents must get an average score of +30 (over 100 consecutive episodes, and over all agents). Specifically:
+	After each episode, the rewards that each agent received (without discounting) are added up , to get a score for each agent. This yields 20 (potentially different) scores. The average of these 20 scores is then used.
             This yields an average score for each episode (where the average is over all 20 agents).
 
-        The environment is considered solved, when the average (over 100 episodes) of those average scores is at least +30.
+The environment is considered solved, when the average (over 100 episodes) of those average scores is at least +30.
 
-In my implementation I have chosen to solve the First version of the environment (Single Agent) using the off-policy DDPG algorithm. The task is episodic, and in order to solve the environment, the agent must get an average score of +30 over 100 consecutive episodes.
+In this submission, I have chosen to solve the first version of the environment (Single Agent) using the DDPG algorithm. In order to solve the environment, the agent must get an average score of +30 over 100 consecutive episodes.
 
 
 ### Getting Started
@@ -88,3 +85,7 @@ In my implementation I have chosen to solve the First version of the environment
 ### Instructions
 
 Follow the instructions in Continuous_Control.ipynb to get started with training your own agent. Scroll to the section that's titled Start Here!!
+
+### Misc
+
+This project was completed in Udacity's workspace. My experience with the workspace is that I have to prevent it from going to sleep. Also, I'm not experience boost in training speed after enabling the GPU, which is very strange for algo largely based on NNs.
