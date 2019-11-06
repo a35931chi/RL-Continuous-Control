@@ -84,7 +84,9 @@ In this submission, I have chosen to solve the first version of the environment 
 
 ### Instructions
 
-Follow the instructions in Continuous_Control.ipynb to get started with training your own agent. Scroll to the section that's titled Start Here!!
+Follow the instructions in Continuous_Control.ipynb to get started with training your own agent. Scroll to the section that's titled Start Here!! Run the code cells in sequence, including calling the libraries, initiate the environments, initiate classes and functions such as OUNoise, ReplayBuffer, Actor, Critic, Agent, DDPG, etc.
+
+At the end of the code, there's a summarized chart illustrating episodes vs. scores for the scores, average scores, and goal of this exercise.
 
 ### Misc
 
